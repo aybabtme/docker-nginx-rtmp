@@ -11,7 +11,7 @@ HUB_PWD=$(op get item Docker | jq -r '.details.fields[] | select(.designation=="
 echo "Logging into Docker Hub"
 echo $HUB_PWD | docker login -u $HUB_USER --password-stdin
 
-echo "Building $sqlboiler_version image"
+echo "Building $nginx_rtmp_version image"
 docker build --build-arg NGINX_RTMP_VERSION=$nginx_rtmp_version -t aybabtme/$image_name:$nginx_rtmp_version .
 docker tag aybabtme/$image_name:$nginx_rtmp_version aybabtme/$image_name:latest
 
